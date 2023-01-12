@@ -32,6 +32,19 @@ describe("Calculator", () => {
     expect(cal.value).toBe(3);
   });
 
+  // 특정 상황에 예외가 발생한 경우 해당하는 예외가 발생했는지 테스트 할 수 있음
+  it("add should throw an error if value is greater than 100", () => {
+    expect(() => {
+      cal.add(101);
+    }).toThrow("Value can not be greater than 100");
+  });
+
+  it("subtracts", () => {
+    cal.set(20);
+    cal.subtract(2);
+    expect(cal.value).toBe(18);
+  });
+
   it("multiplies", () => {
     cal.set(5);
     cal.multiply(4);
