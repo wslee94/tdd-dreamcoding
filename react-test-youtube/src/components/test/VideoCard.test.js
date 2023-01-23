@@ -1,3 +1,4 @@
+import renderer from "react-test-renderer";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter, useLocation, Routes, Route } from "react-router-dom";
@@ -8,6 +9,22 @@ import VideoCard from "../VideoCard";
 
 describe("VideoCard", () => {
   const { title, channelTitle, publishedAt, thumbnails } = video.snippet;
+
+  it("renders grid type correctly", () => {
+    const component = renderer.create(
+      withRouter(<Route path="/" element={<VideoCard video={video} />} />)
+    );
+    expect(component.toJSON()).toMatchSnapshot();
+  });
+
+  it("renders list type correctly", () => {
+    const component = renderer.create(
+      withRouter(
+        <Route path="/" element={<VideoCard video={video} type="list" />} />
+      )
+    );
+    expect(component.toJSON()).toMatchSnapshot();
+  });
 
   it("renders video item", () => {
     render(
