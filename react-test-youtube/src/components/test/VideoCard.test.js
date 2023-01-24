@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter, useLocation, Routes, Route } from "react-router-dom";
 import { fakeVideo as video } from "../../tests/videos";
-import { withRouter } from "../../tests/utills";
+import { withRouter } from "../../tests/utils";
 import { formatAgo } from "../../util/date";
 import VideoCard from "../VideoCard";
 
