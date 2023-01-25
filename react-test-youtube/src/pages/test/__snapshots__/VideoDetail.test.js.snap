@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoDetail renders correctly 1`] = `
+<section
+  className="flex flex-col lg:flex-row"
+>
+  <article
+    className="basis-4/6"
+  >
+    <iframe
+      frameBorder="0"
+      height="640"
+      id="player"
+      src="https://www.youtube.com/embed/1"
+      title="title"
+      type="text/html"
+      width="100%"
+    />
+    <div
+      className="p-8"
+    >
+      <h2
+        className="text-xl font-bold"
+      >
+        title
+      </h2>
+      <pre
+        className="whitespace-pre-wrap"
+      />
+    </div>
+  </article>
+  <section
+    className="basis-2/6"
+  />
+</section>
+`;

@@ -30,6 +30,20 @@ describe("Related Video", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
+  it("renders related videos correctly", async () => {
+    fakeYoutube.relatedVideos.mockImplementation(() => fakeVideos);
+    render(
+      withAllContexts(
+        withRouter(<Route path="/" element={<RelatedVideos id="id" />} />),
+        fakeYoutube
+      )
+    );
+
+    await waitFor(() => {
+      expect(screen.getAllByRole("listitem")).toHaveLength(fakeVideos.length);
+    });
+  });
+
   it("renders loading", () => {
     fakeYoutube.relatedVideos.mockImplementation(() => fakeVideos);
 
@@ -40,7 +54,7 @@ describe("Related Video", () => {
       )
     );
 
-    expect(screen.getByText("Loading...")).toBeInTheDocument();
+    expect(screen.queryByText("Loading...")).toBeInTheDocument();
   });
 
   it("renders error", async () => {
